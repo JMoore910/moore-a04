@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Solution41Test {
 
-    Solution41 sol41 = new Solution41();
+    Sorter sort = new Sorter();
     ArrayList<String> testList = new ArrayList<>(Arrays.asList(
             "Xavier,Charles",   // sorted array as follows  :   "Aran,Samus"
             "Wheezer,Carl",     //                          :   "Marley,Bob"
@@ -19,19 +19,19 @@ class Solution41Test {
             "Obama,Barack"      //                          :   "Xavier,Charles"
     ));
 
-
+    //Test two locations in sorted list to see if it was sorted properly
 
     @Test
     public void test_alphabet_sort_1(){
-        List<String> actualList = new ArrayList<>();
-        //actualList = sol41.alphabetSortList(testList)
-        //assert equals("Aran,Samus",actualList(0))
+        List<String> actualList;
+        actualList = sort.alphabetSortList(testList);
+        assertEquals("Aran,Samus",actualList.get(0));
     }
 
     @Test
     public void test_alphabet_sort_2(){
-        List<String> actualList = new ArrayList<>();
-        //actualList = sol41.alphabetSortList(testList)
-        //assert equals("Obama,Barack",actualList(2))
+        List<String> actualList;
+        actualList = sort.alphabetSortList(testList);
+        assertEquals("Obama,Barack",actualList.get(2));
     }
 }
