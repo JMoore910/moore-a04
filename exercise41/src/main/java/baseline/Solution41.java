@@ -7,6 +7,11 @@ package baseline;
  */
 
 /*
+    Due to multiple problems faced during pushing, renaming etc,
+    I lost history of commits prior to completion of exercise
+    including pseudocode commits. I cannot recover this, I am sorry
+
+        
     Create an application that reads a list of names from
     file, then sorts them alphabetically, and calculates
     the name count
