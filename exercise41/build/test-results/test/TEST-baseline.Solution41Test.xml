@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="baseline.Solution41Test" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-10-10T03:01:24" hostname="DESKTOP-2D733RN" time="0.015">
-  <properties/>
-  <testcase name="test_alphabet_sort_1()" classname="baseline.Solution41Test" time="0.014"/>
-  <testcase name="test_alphabet_sort_2()" classname="baseline.Solution41Test" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
