@@ -1,0 +1,2 @@
+Gordon,Jim,21000
+Kojima,Hideo,78000
