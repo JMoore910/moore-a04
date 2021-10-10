@@ -1,0 +1,11 @@
+@startuml
+
+class Solution41 {
+    ArrayList<String> nameList
+
+    ArrayList<String>readFile()
+    ArrayList<String> alphabetSortList(ArrayList<String> list)
+    void printToFile(ArrayList<String> list))
+}
+
+@enduml
