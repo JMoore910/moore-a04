@@ -1,0 +1,17 @@
+@startuml
+
+class Sorter {
+    ArrayList<String>readFile()
+    ArrayList<String> alphabetSortList(ArrayList<String> list)
+    void printToFile(ArrayList<String> list))
+}
+
+
+class main {
+    (ArrayList<String> nameList)
+}
+
+
+main .. Sorter
+
+@enduml
