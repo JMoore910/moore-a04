@@ -1,11 +1,31 @@
 @startuml
-'https://plantuml.com/sequence-diagram
 
-autonumber
+class Employee {
+    - private String firstName
+    - private String lastName
+    - private String salary
+    + private void setFirstName(String fName)
+    + private void setLastName(String lName)
+    + private void setSalary(String salary)
+    + public string getFirstName()
+    + public string getLastName()
+    + public string getSalary()
+}
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+class Parser {
+    +private list readFromFile(String fileName)
+    +public list parseInput(String fileName)
+    +public void printList(list)
+}
+
+
+class main {
+    new Parser();
+}
+
+main -> Parser : parser.parseInput(fileName)
+
+Parser .. Employee : Employee Objects
+Employee --> Parser : getters and setters
 @enduml

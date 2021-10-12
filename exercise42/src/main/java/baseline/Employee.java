@@ -8,8 +8,6 @@ public class Employee {
     private String lastName;
     private String salary;
 
-    Employee() {
-    }
 
     public void parseInput(String employeeInfo) {
         List<String> employeeParsed;
