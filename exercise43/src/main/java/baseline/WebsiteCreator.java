@@ -1,36 +1,74 @@
 package baseline;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class WebsiteCreator {
-    //  private static final Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
 
-    //  Create method: public Website getUserInput()
-    //      take 4 strings as input. If anything other than 'y' or 'yyyyy....y'
-    //      is input for creating folders, assume user does not want to make them
-    //      use the 4 strings as arguments in a constructor for a Website object
-    //      return userSite;
+    public Website getUserInput() {
+        //      take 4 strings as input. If anything other than 'y' or 'yyyyy....y'
+        //      is input for creating folders, assume user does not want to make them
+        //      use the 4 strings as arguments in a constructor for a Website object
+        String siteName;
+        String author;
+        String dirCheck;
+
+        boolean javaDirCheck = false;
+        boolean cssDirCheck = false;
+
+        System.out.print("Site name: ");
+        siteName = input.nextLine();
+        System.out.print("Author: ");
+        author = input.nextLine();
+        System.out.print("Do you want a folder for JavaScript? ");
+        dirCheck = input.nextLine();
+        //Check if input variable is either y or Y
+        if (dirCheck.matches("[yY]+"))
+            javaDirCheck = true;
+        System.out.print("Do you want a folder for CSS? ");
+        dirCheck = input.nextLine();
+        //Check if input variable is either y or Y
+        if (dirCheck.matches("[yY]+"))
+            cssDirCheck = true;
+        return new Website(siteName, author, javaDirCheck, cssDirCheck);
+    }
 
 
-    //  Create method: private void writeToHTML(String fileName, Website userSite)
-    //      fileName will include the path to it
-    //      Create buffered writer
-    //      BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))
-    //      bw.write("<html><head><title>userSite.getSiteName()</title></head><meta name = "author" content = userSite.getAuthor()></html>");
-    //      bw.close
+    private void writeToHTML(String fileName, Website userSite) throws IOException {
+        //      fileName will include the path to it
+        //      Create buffered writer
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+            bw.write("<html>\n<head>\n<title>" + userSite.getSiteName() + "</title>\n</head>\n<meta name = \"author\" content = " + userSite.getAuthor() + ">\n</html>");
+        }
+    }
 
 
-    //  Create method: public void createWebsite()
-    //      Website userSite = getUserInput();
-    //      make directory to hold html file
-    //      String fileName = "./website/" + userSite.getSiteName();
-    //      new File(fileName).mkdirs();
-    //
-    //      if (userSite.getJavaDir)
-    //          new File(fileName + "/js/").mkdirs();
-    //
-    //      if (userSite.getCssDir)
-    //          new File(fileName + "/css/").mkdirs();
-    //
-    //      program then creates an html file called index.html inside of the new website directory
-    //      writeToHTML(fileName, userSite);
+    public void createWebsite() throws IOException {
+        boolean fileCreated;
+        Logger logger = Logger.getLogger("FilesCreated");
+        Website userSite = getUserInput();
+        //  make directory to hold html file
+        String fileName = "./website/" + userSite.getSiteName();
+        fileCreated = new File(fileName).mkdirs();
+        //  make javaScript directory if user authorized it
+        if (userSite.getJavaDir())
+            fileCreated = new File(fileName + "/js/").mkdirs();
+        //  make CSS directory if user authorized it
+        if (userSite.getCssDir())
+            fileCreated = new File(fileName + "/css/").mkdirs();
+        //  program then creates an html file called index.html inside of the new website directory
+        new File(fileName + "/index.html");
+        fileName = fileName + "/index.html";
+        writeToHTML(fileName, userSite);
+        if (fileCreated) {
+            logger.log(Level.INFO, "HTML CREATED");
+        }
+    }
 }
