@@ -1,0 +1,25 @@
+@startuml
+
+class Website {
++Website defined as a record
+-private String siteName
+-private String author
+-private boolean javaDir : Checker for whether to create javascript Dir
+-private boolean cssDir  : Checker for whether to create CSS Directory
+
++public String getSiteName()
++public String getAuthor()
++public boolean getJavaDir()
++public boolean getCssDir()
+}
+
+class WebsiteCreator {
+    +Website getUserInput()
+    -methods can throw IO Exceptions
+    +void writeToHTML(String fileName, Website userFile)
+    +void createWebsite()
+}
+
+WebsiteCreator ..> Website
+
+@enduml

@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 public class WebsiteCreator {
     private static final Scanner input = new Scanner(System.in);
 
-
     public Website getUserInput() {
         //      take 4 strings as input. If anything other than 'y' or 'yyyyy....y'
         //      is input for creating folders, assume user does not want to make them
