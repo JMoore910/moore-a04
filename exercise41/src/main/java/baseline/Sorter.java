@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Logger;
 
 import static java.util.Collections.sort;
 
@@ -22,8 +23,7 @@ public class Sorter {
     public List<String> readFile(List<String> list) throws IOException {
         //  SonarLint calls for this function to be static
         //  Create BufferedReader
-        BufferedReader br = new BufferedReader(new FileReader(in));
-        try {
+        try (BufferedReader br = new BufferedReader(new FileReader(in))) {
             //  declare variable to read a line from file
             String input = br.readLine();
             while (input != null) {
@@ -31,8 +31,6 @@ public class Sorter {
                 list.add(input);
                 input = br.readLine();
             }
-        } finally {
-            br.close();
         }
         //      return list of inputs
         return list;
@@ -45,12 +43,14 @@ public class Sorter {
     }
 
     public void printToFile(List<String> list) throws IOException {
+        boolean created = false;
+        Logger logger = Logger.getLogger("Sorter Logger");
         //  use a for each loop and print out the string i at each element of list
         try {
             File outFile = new File(out);
             //  Check to see if the output file does not exist yet
             if (!outFile.exists()) {
-                outFile.createNewFile();
+                created = outFile.createNewFile();
             }
             PrintWriter writer = new PrintWriter(outFile);
             for (String i : list) {
@@ -61,5 +61,7 @@ public class Sorter {
             e.printStackTrace();
             throw new IOException("An error has occurred");
         }
+        if (created)
+            logger.info("file created and written to");
     }
 }

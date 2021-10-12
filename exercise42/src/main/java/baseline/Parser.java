@@ -12,8 +12,7 @@ public class Parser {
         //  Create String list to return
         List<String> list = new ArrayList<>();
         //  Create BufferedReader
-        BufferedReader br = new BufferedReader(new FileReader(in));
-        try {
+        try (BufferedReader br = new BufferedReader(new FileReader(in))) {
             //  declare variable to read a line from file
             String input = br.readLine();
             while (input != null) {
@@ -21,8 +20,6 @@ public class Parser {
                 list.add(input);
                 input = br.readLine();
             }
-        } finally {
-            br.close();
         }
         //      return list of inputs
         return list;
@@ -51,16 +48,16 @@ public class Parser {
         System.out.println("--------------------------");
         for (Employee emp : list) {
             int numSpaces = 10 - emp.getLastName().length();
-            System.out.printf(emp.getLastName());
+            System.out.print(emp.getLastName());
             for (int i = 0; i < numSpaces; i++) {
                 //  print a space for the number of spaces
-                System.out.printf(" ");
+                System.out.print(" ");
             }
             numSpaces = 10 - emp.getFirstName().length();
-            System.out.printf(emp.getFirstName());
+            System.out.print(emp.getFirstName());
             for (int i = 0; i < numSpaces; i++) {
                 //  print a space for the number of spaces
-                System.out.printf(" ");
+                System.out.print(" ");
             }
             System.out.println(emp.getSalary());
             //  when loops are exited a full table of each employee info will have been printed

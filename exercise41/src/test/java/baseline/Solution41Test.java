@@ -22,14 +22,14 @@ class Solution41Test {
     //Test two locations in sorted list to see if it was sorted properly
 
     @Test
-    public void test_alphabet_sort_1(){
+    void test_alphabet_sort_1(){
         List<String> actualList;
         actualList = sort.alphabetSortList(testList);
         assertEquals("Aran,Samus",actualList.get(0));
     }
 
     @Test
-    public void test_alphabet_sort_2(){
+    void test_alphabet_sort_2(){
         List<String> actualList;
         actualList = sort.alphabetSortList(testList);
         assertEquals("Obama,Barack",actualList.get(2));
