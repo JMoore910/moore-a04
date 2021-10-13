@@ -44,17 +44,16 @@ public class WebsiteCreator {
         //      fileName will include the path to it
         //      Create buffered writer
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
-            bw.write("<html>\n<head>\n<title>" + userSite.getSiteName() + "</title>\n</head>\n<meta name = \"author\" content = " + userSite.getAuthor() + ">\n</html>");
+            bw.write("<html>\n<head>\n<title>" + userSite.getSiteName() + "</title>\n</head>\n<meta name = \"author\" content = \"" + userSite.getAuthor() + "\">\n</html>");
         }
     }
 
 
-    public void createWebsite() throws IOException {
+    public File createWebsite(Website userSite,String filePath) throws IOException {
         boolean fileCreated;
         Logger logger = Logger.getLogger("FilesCreated");
-        Website userSite = getUserInput();
         //  make directory to hold html file
-        String fileName = "./website/" + userSite.getSiteName();
+        String fileName = filePath + "website/" + userSite.getSiteName();
         fileCreated = new File(fileName).mkdirs();
         //  make javaScript directory if user authorized it
         if (userSite.getJavaDir())
@@ -63,10 +62,19 @@ public class WebsiteCreator {
         if (userSite.getCssDir())
             fileCreated = new File(fileName + "/css/").mkdirs();
         //  program then creates an html file called index.html inside of the new website directory
-        new File(fileName + "/index.html");
+        File f = new File(fileName + "/index.html");
         fileName = fileName + "/index.html";
         writeToHTML(fileName, userSite);
         if (fileCreated) {
+            logger.log(Level.INFO, "DIRECTORIES CREATED");
+        }
+        return f;
+    }
+
+    public void runApp(String filePath) throws IOException {
+        Logger logger = Logger.getLogger("FilesCreated");
+        File f = createWebsite(getUserInput(),filePath);
+        if (f.exists()){
             logger.log(Level.INFO, "HTML CREATED");
         }
     }

@@ -1,25 +1,32 @@
 @startuml
 
-class Website {
-+Website defined as a record
--private String siteName
--private String author
--private boolean javaDir : Checker for whether to create javascript Dir
--private boolean cssDir  : Checker for whether to create CSS Directory
+class Application {
+main()
+WebsiteCreator web
+'object of WebsiteCreator web constructed
+'web.createWebsite() does the rest
+}
 
-+public String getSiteName()
-+public String getAuthor()
-+public boolean getJavaDir()
-+public boolean getCssDir()
+class Website {
+//Website defined as a record
+-siteName: String
+-author: String
+-makeJavaDir: boolean
+-makeCssDir : boolean
+
++getSiteName(): String
++getAuthor(): String
++getMakeJavaDir(): boolean
++getMakeCssDir(): boolean
 }
 
 class WebsiteCreator {
-    +Website getUserInput()
-    -methods can throw IO Exceptions
-    +void writeToHTML(String fileName, Website userFile)
-    +void createWebsite()
+    //methods can throw IO Exceptions
+    +getUserInput(): Website
+    -writeToHTML(String fileName, Website userFile): void
+    +createWebsite(): void
 }
-
-WebsiteCreator ..> Website
+Application ..o WebsiteCreator
+WebsiteCreator --o Website
 
 @enduml
