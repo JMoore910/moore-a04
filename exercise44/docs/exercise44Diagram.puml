@@ -1,0 +1,44 @@
+@startuml
+
+class Solution44 {
+'/*
+'*  UCF COP3330 Fall 2021 Assignment 4 Solutions
+'*  Copyright 2021 Jeanne Moore
+'*/
+
+main()
+SearchJsonArray object
+}
+
+class CreateJSONArray {
++readJsonFile(String file): JsonArray
+}
+
+class SearchJSONArray {
+CreateJSONArray object
+Product object
+getUserSearch(): String
+searchJsonArray(String search, JsonArray json): Product
+runSearch(): void
+}
+
+class Product {
+-name: String
+-price: double
+-quantity: int
+
++getName(): String
++getPrice(): double
++getQuantity(): int
++printProduct(): void
+}
+
+Solution44 .. SearchJSONArray
+
+SearchJSONArray --o CreateJSONArray
+
+SearchJSONArray --o Product
+
+
+
+@enduml
