@@ -1,29 +1,25 @@
 package baseline;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import static java.util.Collections.sort;
 
 public class Sorter {
-    private final String in;
-    private final String out;
+    private final String inFileName;
 
     public Sorter() {
         //  Constructor for sorter object: Point files at their respective paths
-        in = "data\\exercise41_input.txt";
-        out = "data\\exercise41_output.txt";
+        inFileName = "data\\exercise41_input.txt";
     }
 
     public List<String> readFile(List<String> list) throws IOException {
         //  SonarLint calls for this function to be static
         //  Create BufferedReader
-        try (BufferedReader br = new BufferedReader(new FileReader(in))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(inFileName))) {
             //  declare variable to read a line from file
             String input = br.readLine();
             while (input != null) {
@@ -42,26 +38,19 @@ public class Sorter {
         return list;
     }
 
-    public void printToFile(List<String> list) throws IOException {
-        boolean created = false;
-        Logger logger = Logger.getLogger("Sorter Logger");
-        //  use a for each loop and print out the string i at each element of list
-        try {
-            File outFile = new File(out);
-            //  Check to see if the output file does not exist yet
-            if (!outFile.exists()) {
-                created = outFile.createNewFile();
-            }
-            PrintWriter writer = new PrintWriter(outFile);
-            for (String i : list) {
-                writer.println(i);
-            }
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IOException("An error has occurred");
-        }
-        if (created)
-            logger.info("file created and written to");
+
+    public void runSorter() throws IOException {
+        //  Create an object of class Sorter
+        Sorter sortObject = new Sorter();
+        ListPrinter printer = new ListPrinter();
+        //  Create a list to store names
+        List<String> nameList = new ArrayList<>();
+        //  Call method to fill list with names from file
+        nameList = sortObject.readFile(nameList);
+        //  Call method to sort list in alphabetical order
+        nameList = sortObject.alphabetSortList(nameList);
+        //  Pass in the list to be printed by the Sorter Object
+        if (printer.printToFile(nameList).exists())
+            System.out.println("File printed!");
     }
 }

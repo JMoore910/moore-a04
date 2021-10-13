@@ -28,8 +28,6 @@ package baseline;
  */
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Solution41 {
 
@@ -37,13 +35,6 @@ public class Solution41 {
     public static void main(String[] args) throws IOException {
         //  Create an object of class Sorter
         Sorter sortObject = new Sorter();
-        //  Create a list to store names
-        List<String> nameList = new ArrayList<>();
-        //  Call method to fill list with names from file
-        nameList = sortObject.readFile(nameList);
-        //  Call method to sort list in alphabetical order
-        nameList = sortObject.alphabetSortList(nameList);
-        //  Pass in the list to be printed by the Sorter Object
-        sortObject.printToFile(nameList);
+        sortObject.runSorter();
     }
 }

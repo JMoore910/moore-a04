@@ -2,6 +2,8 @@ package baseline;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,5 +35,12 @@ class Solution41Test {
         List<String> actualList;
         actualList = sort.alphabetSortList(testList);
         assertEquals("Obama,Barack",actualList.get(2));
+    }
+
+    @Test
+    void output_file_exists() throws IOException {
+        ListPrinter testPrint = new ListPrinter();
+        File f = testPrint.printToFile(testList);
+        assertTrue(f.exists());
     }
 }

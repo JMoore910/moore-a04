@@ -1,17 +1,24 @@
 @startuml
 
 class Sorter {
-    ArrayList<String>readFile()
-    ArrayList<String> alphabetSortList(ArrayList<String> list)
-    void printToFile(ArrayList<String> list))
+    -inFileName: String
+
+    +readFile(): ArrayList<String>
+    +alphabetSortList(ArrayList<String> list): ArrayList<String>
+    +printToFile(ArrayList<String> list)): void
 }
 
 
-class main {
-    (ArrayList<String> nameList)
+class Application {
+    nameList: ArrayList<String>
 }
 
+class ListPrinter {
+    -outFileName: String
+    +printToFile(ArrayList<String> list)): File
+}
 
-main .. Sorter
+Application .. Sorter
+Sorter .. ListPrinter
 
 @enduml
