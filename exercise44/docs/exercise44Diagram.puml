@@ -6,7 +6,7 @@ class Solution44 {
 '*  Copyright 2021 Jeanne Moore
 '*/
 
-main()
++main()
 SearchJsonArray object
 }
 
@@ -15,6 +15,7 @@ class CreateJSONArray {
 }
 
 class SearchJSONArray {
+Scanner object
 CreateJSONArray object
 Product object
 -getUserSearch(): String
@@ -28,7 +29,8 @@ class Product {
 -quantity: int
 
 +getName(): String
-'other getters are not needed
++getQuantity(): int
++getPrice(): double
 +printProduct(): void
 }
 
