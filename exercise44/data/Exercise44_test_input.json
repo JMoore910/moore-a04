@@ -1,0 +1,19 @@
+{
+  "products" : [
+    {"name": "Power Bombs", "price": 25.00, "quantity": 20 },
+    {"name": "Super Missiles", "price": 0.00, "quantity": 250 },
+    {"name": "Screw Attack", "price": 1500.00, "quantity": 1 },
+    {"name": "Morph Ball", "price": 300.00, "quantity":  1},
+    {"name": "Ice Missiles", "price": 122222.00, "quantity": 250},
+    {"name": "Bombs", "price":  12.00, "quantity":  6},
+    {"name": "Wide Beam", "price":  121212.00, "quantity":  7},
+    {"name": "Wave Beam", "price":  1312.00, "quantity":  8},
+    {"name": "Plasma Beam", "price":  112.00, "quantity":  3},
+    {"name": "Diffusion Beam", "price":  102.00, "quantity":  4},
+    {"name": "Storm Missile", "price":  120.00, "quantity":  55},
+    {"name": "Speed Boost", "price":  1200111.00, "quantity":  421},
+    {"name": "Gravity Suit", "price":  1232.00, "quantity":  88},
+    {"name": "Varia Suit", "price":  1332.00, "quantity":  70},
+    {"name": "Charge Beam", "price":  1122.00, "quantity":  36}
+  ]
+}

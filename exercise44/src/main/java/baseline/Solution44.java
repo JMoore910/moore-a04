@@ -5,14 +5,6 @@ package baseline;
  *  Copyright 2021 Jeanne Moore
  */
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
-import java.io.FileReader;
-
 /*
     Create an application that reads a Json file as input to a JSON Array using a JsonParser
     application then gets input from user for the name of a product and searches the JSON array
@@ -25,8 +17,10 @@ import java.io.FileReader;
 
 
 public class Solution44 {
+    private static final String FILEPATH = "data//exercise44_input.json";
     public static void main(String[] args) {
-        //SearchJSONArray searcher = new SearchJSONArray();
-        //searcher.runSearch();
+        // Create a searcher object that finds an object from the input JSON file
+        SearchJSONArray searcher = new SearchJSONArray();
+        searcher.runSearch(FILEPATH);
     }
 }

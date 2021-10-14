@@ -17,9 +17,9 @@ class CreateJSONArray {
 class SearchJSONArray {
 CreateJSONArray object
 Product object
-getUserSearch(): String
-searchJsonArray(String search, JsonArray json): Product
-runSearch(): void
+-getUserSearch(): String
++searchJsonArray(String search, JsonArray json): Product
++runSearch(): void
 }
 
 class Product {
@@ -28,8 +28,7 @@ class Product {
 -quantity: int
 
 +getName(): String
-+getPrice(): double
-+getQuantity(): int
+'other getters are not needed
 +printProduct(): void
 }
 

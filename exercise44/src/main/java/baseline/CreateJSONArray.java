@@ -5,19 +5,23 @@ package baseline;
  *  Copyright 2021 Jeanne Moore
  */
 
+import com.google.gson.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+
 public class CreateJSONArray {
-    //  Create method: public JsonArray readJsonFile(String file) {
-    //      method returns a Json Array that can be read and checked by user
-    //      Read the file to a string the string can then be parsed to a Json object
-    //      JsonParser parse = new JsonParser();
-    //      try {
-    //          create object that is read from file at specified filepath
-    //          Object parseObj = parse.parse(new FileReader(file))
-    //          JsonObject json = (JsonObject) parseObj;
-    //          JsonArray jsonArray = (JsonArray) json.get("products")
-    //      } catch (Exception e) {
-    //          throw new IllegalArgumentException("Something went wrong");
-    //      }
-    //      return jsonArray;
-    //  }
+    public JsonArray readJsonFile(String file) {
+        //      method returns a Json Array that can be read and checked by user
+        //      Read the file to a string the string can then be parsed to a Json object
+        try {
+        //          create object that is read from file at specified filepath
+        Object parseObj = JsonParser.parseReader(new FileReader(file));
+        JsonObject json = (JsonObject) parseObj;
+        return (JsonArray) json.get("products");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return new JsonArray();
+    }
 }
