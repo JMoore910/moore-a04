@@ -18,6 +18,6 @@ public class Solution43 {
     public static void main(String[] args) throws IOException {
         //  Create a websiteCreator object and run code non statically through it
         WebsiteCreator web = new WebsiteCreator();
-        web.runApp("data/");
+        web.runApp("data//");
     }
 }

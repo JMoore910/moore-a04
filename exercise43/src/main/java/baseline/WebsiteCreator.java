@@ -53,17 +53,17 @@ public class WebsiteCreator {
         boolean fileCreated;
         Logger logger = Logger.getLogger("FilesCreated");
         //  make directory to hold html file
-        String fileName = filePath + "website/" + userSite.getSiteName();
+        String fileName = filePath + "website//" + userSite.getSiteName();
         fileCreated = new File(fileName).mkdirs();
         //  make javaScript directory if user authorized it
         if (userSite.getJavaDir())
-            fileCreated = new File(fileName + "/js/").mkdirs();
+            fileCreated = new File(fileName + "//js//").mkdirs();
         //  make CSS directory if user authorized it
         if (userSite.getCssDir())
-            fileCreated = new File(fileName + "/css/").mkdirs();
+            fileCreated = new File(fileName + "//css//").mkdirs();
         //  program then creates an html file called index.html inside of the new website directory
-        File f = new File(fileName + "/index.html");
-        fileName = fileName + "/index.html";
+        File f = new File(fileName + "//index.html");
+        fileName = fileName + "//index.html";
         writeToHTML(fileName, userSite);
         if (fileCreated) {
             logger.log(Level.INFO, "DIRECTORIES CREATED");

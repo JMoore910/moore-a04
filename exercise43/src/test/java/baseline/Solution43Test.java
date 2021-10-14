@@ -25,7 +25,7 @@ class Solution43Test {
 
     @Test
     void test_HTML_created() throws IOException {
-        File f = testCreator.createWebsite(testWebsite,"data/test data/");
+        File f = testCreator.createWebsite(testWebsite,"data//test data//");
         assertTrue(f.exists());
     }
 }
