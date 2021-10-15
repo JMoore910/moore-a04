@@ -25,7 +25,7 @@ class Solution41Test {
             "Marley,Bob",       //                          :   "Wheezer,Carl"
             "Obama,Barack"      //                          :   "Xavier,Charles"
     ));
-
+    //Note:
     //Test two locations in sorted list to see if it was sorted properly
 
     @Test
@@ -44,7 +44,7 @@ class Solution41Test {
 
     @Test
     void output_file_exists() throws IOException {
-        ListPrinter testPrint = new ListPrinter();
+        ListPrinter testPrint = new ListPrinter("data//exercise41_test_output");
         File f = testPrint.printToFile(testList);
         assertTrue(f.exists());
     }

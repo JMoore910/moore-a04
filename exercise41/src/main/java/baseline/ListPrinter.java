@@ -13,10 +13,10 @@ import java.util.logging.Logger;
 
 public class ListPrinter {
     //  Reusable class that prints a list of strings to an output file
-    private final String outFileName;
+    private final String fileName;
 
-    public ListPrinter(){
-        outFileName = "data\\exercise41_output.txt";
+    public ListPrinter(String fileName){
+        this.fileName = fileName;
     }
     public File printToFile(List<String> list) throws IOException {
         boolean created = false;
@@ -24,7 +24,7 @@ public class ListPrinter {
         Logger logger = Logger.getLogger("Sorter Logger");
         //  use a for each loop and print out the string i at each element of list
         try {
-            outFile = new File(outFileName);
+            outFile = new File(fileName);
             //  Check to see if the output file does not exist yet
             if (!outFile.exists()) {
                 created = outFile.createNewFile();

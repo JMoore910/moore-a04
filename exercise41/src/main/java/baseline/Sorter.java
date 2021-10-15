@@ -15,10 +15,12 @@ import static java.util.Collections.sort;
 
 public class Sorter {
     private final String inFileName;
+    private final String outFileName;
 
     public Sorter() {
         //  Constructor for sorter object: Point files at their respective paths
-        inFileName = "data\\exercise41_input.txt";
+        inFileName = "data//exercise41_input.txt";
+        outFileName = "data//exercise41_input.txt";
     }
 
     public List<String> readFile(List<String> list) throws IOException {
@@ -47,7 +49,7 @@ public class Sorter {
     public void runSorter() throws IOException {
         //  Create an object of class Sorter
         Sorter sortObject = new Sorter();
-        ListPrinter printer = new ListPrinter();
+        ListPrinter printer = new ListPrinter(outFileName);
         //  Create a list to store names
         List<String> nameList = new ArrayList<>();
         //  Call method to fill list with names from file

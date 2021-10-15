@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Solution45Test {
-    String inFilePath = "data//exercise45_input_test.txt";
+    String inFilePath = "data//exercise45_test_input.txt";
     String outFilePath = "data//exercise45_output_test.txt";
     ReadListFromFile testReader = new ReadListFromFile();
     List<String> list = testReader.readFromFile(inFilePath);
@@ -35,7 +35,7 @@ class Solution45Test {
         //  Tests if the string to replace is accurate to input file
         ProcessList tester = new ProcessList();
         List<String> testStrings = tester.findStrings(newList);
-        assertEquals("missile",testStrings.get(0));
+        assertEquals("guns",testStrings.get(0));
     }
 
     @Test
@@ -43,7 +43,7 @@ class Solution45Test {
         //  Tests if the string to replace is accurate to input file
         ProcessList tester = new ProcessList();
         List<String> testStrings = tester.findStrings(newList);
-        assertEquals("supermissile",testStrings.get(1));
+        assertEquals("screwattack",testStrings.get(1));
     }
 
     @Test
