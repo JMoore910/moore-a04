@@ -1,0 +1,32 @@
+@startuml
+
+'/*
+' *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+' *  Copyright 2021 Jeanne Moore
+' */
+
+
+abstract class AbstractList
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml

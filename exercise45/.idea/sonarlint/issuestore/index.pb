@@ -5,10 +5,6 @@ N
 data/exercise45_input_test.txt,f\8\f8913ed88cd7771dc46526222b75bbc3601f699e
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-V
-&src/main/java/baseline/Solution45.java,7\e\7e18b8f624be772d4d2319e73601cb0e022171c9
-\
-,src/main/java/baseline/ReadListFromFile.java,8\5\858ecb6f7459bb4db002579158c813d34412c56e
 [
 +src/main/java/baseline/PrintListToFile.java,3\5\3518ed1a1cd3f5cc78a5f7e20b4995398a646ac7
 W
@@ -17,3 +13,7 @@ Z
 *src/test/java/baseline/Solution45Test.java,7\8\7885da1447b678f57f33933798105c38322ac9d0
 L
 docs/exercise45_Diagram.puml,6\6\66389a5d626e92ac966bbcfcc47ad0b133c1c79f
+\
+,src/main/java/baseline/ReadListFromFile.java,8\5\858ecb6f7459bb4db002579158c813d34412c56e
+V
+&src/main/java/baseline/Solution45.java,7\e\7e18b8f624be772d4d2319e73601cb0e022171c9
