@@ -6,8 +6,10 @@ package baseline;
  */
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -17,34 +19,33 @@ import java.util.List;
 
 
 public class ReadFromFile {
-    //  create method: List<String> readFromFile(String fileName)
-    //      Read text from input text file line by line into a list to return
-    //      Create a list of Strings
-    //      List<String> list = new ArrayList<>();
-    //        //  Create a buffered reader in a try block
-    //        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-    //            String input = br.readLine();
-    //            while (input != null) {
-    //                //  add each line of the input file as a string element to the list
-    //                list.add(input);
-    //                input = br.readLine();
-    //            }
-    //        } catch (IOException exception) {
-    //            exception.printStackTrace();
-    //        }
-    //        return list;
-    //    }
-    //
-    //
+    public List<String> readFromFile(String fileName) {
+        //  Read text from input text file line by line into a list to return
+        //  Create a list of Strings
+        List<String> list = new ArrayList<>();
+        //  Create a buffered reader in a try block
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String input = br.readLine();
+            while (input != null) {
+            //  add each line of the input file as a string element to the list
+            list.add(input);
+            input = br.readLine();
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+        return list;
+    }
 
-    //  create method: List<String> convertList(String fileName)
-    //      Call to get list as input from file
-    //      List<String> list = readFromFile(fileName)
-    //      list is currently full lines, each needs to be split
-    //      List<String> parsedList = new ArrayList<>();
-    //      enter a for loop and parse each element of the list
-    //      and set it into parsedList
-    //      for (String i: list) {
-    //          parsedList.add(Arrays.asList(i.split(" ")))
-    //      return parsedList;
+    public List<String> convertList(String fileName) {
+        //  Call to get list as input from file
+        List<String> list = readFromFile(fileName);
+        //  list is currently full lines, each needs to be split
+        List<String> parsedList = new ArrayList<>();
+        //  enter a for loop and parse each element of the list
+        //  and set it into parsedList
+        for (String i: list)
+            parsedList.addAll(Arrays.asList(i.split(" ")));
+        return parsedList;
+    }
 }

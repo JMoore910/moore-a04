@@ -19,5 +19,12 @@ package baseline;
     //           ProcessList
  */
 
+import java.io.FileNotFoundException;
+
 public class Solution46 {
+    private static final String FILEPATH = "data//exercise46_input.txt";
+    public static void main(String[] args) throws FileNotFoundException {
+        ProcessList processor = new ProcessList();
+        processor.printOccurrences(FILEPATH);
+    }
 }

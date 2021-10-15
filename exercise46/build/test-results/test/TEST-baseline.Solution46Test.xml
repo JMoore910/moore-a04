@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="baseline.Solution46Test" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-10-15T23:29:01" hostname="DESKTOP-2D733RN" time="0.08">
+  <properties/>
+  <testcase name="testWordOccurrence()" classname="baseline.Solution46Test" time="0.014"/>
+  <testcase name="test_read_file()" classname="baseline.Solution46Test" time="0.001"/>
+  <testcase name="test_convert_list()" classname="baseline.Solution46Test" time="0.001"/>
+  <testcase name="[1] often, 0" classname="baseline.Solution46Test" time="0.015"/>
+  <testcase name="[2] times, 1" classname="baseline.Solution46Test" time="0.001"/>
+  <testcase name="[3] few, 2" classname="baseline.Solution46Test" time="0.001"/>
+  <testcase name="[4] rare, 3" classname="baseline.Solution46Test" time="0.001"/>
+  <testcase name="test_find_occurrences()" classname="baseline.Solution46Test" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

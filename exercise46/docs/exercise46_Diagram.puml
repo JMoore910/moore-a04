@@ -6,27 +6,36 @@
 ' */
 
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class Solution46 {
+-FILEPATH: String
+processor: ProcessList object
++main()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class ProcessList {
++findOccurrences(List<String> list): List<WordOccurrences>
++sortOccurrences(List<WordOccurrences> list): void
++printOccurrences(List<WordOccurrences> list): void
 }
+
+class ReadFromFile {
++readFromFile(String fileName): (List<String> list)
++convertList(String fileName): (List<String> list)
+}
+
+class WordOccurrences {
+-word: String
+-occurrences: int
++WordOccurrences(String word, int occurrences)
++addOccurrence(): void
++getOccurrence(): int
++getWord(): String
+}
+
+Solution46 --o ProcessList
+
+ProcessList --o ReadFromFile
+
+ProcessList --o WordOccurrences
 
 @enduml
