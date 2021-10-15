@@ -6,9 +6,30 @@
 ' */
 
 
-class pleaseaddsomethinganddon'tleavethisblank {
-    this class has an obvious purpose
+class Solution45 {
+    -inputFilePath: String
+    +main()
 }
+
+class ReadListFromFile {
+    +readFromFile(String fileName): List<String>
+    +convertList(List<String> list): List<String>
+}
+
+class PrintListToFile {
+    -getFileName(): String
+    +printToFile(List<String> list), String outFile): void
+    +readAndProcessList(String inFile): void
+}
+
+class ProcessList {
+    +findStrings(List<String> list): List<String>
+    +replaceStrings(String replacer, String replaced, List<String> list): void
+}
+
+Solution45 --o PrintListToFile
+PrintListToFile --o ReadListFromFile
+PrintListToFile --o ProcessList
 
 
 @enduml

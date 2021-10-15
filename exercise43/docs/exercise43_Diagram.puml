@@ -1,6 +1,12 @@
 @startuml
 
-class Application {
+'/*
+' * UCF COP3330 Fall 2021 Assignment 4 Solutions
+' * Copyright 2021 Jeanne Moore
+' */
+
+
+class Solution43 {
 main()
 WebsiteCreator web
 'object of WebsiteCreator web constructed
@@ -26,7 +32,7 @@ class WebsiteCreator {
     -writeToHTML(String fileName, Website userFile): void
     +createWebsite(): void
 }
-Application ..o WebsiteCreator
+Solution43 ..o WebsiteCreator
 WebsiteCreator --o Website
 
 @enduml

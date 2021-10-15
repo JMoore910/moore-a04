@@ -18,27 +18,33 @@ Create a class that takes a list of strings as input from a file
     including additional endLine indicators
  */
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ReadListFromFile {
-    //  Create method: List<String> readFromFile(String fileName)
-    //      try:
-    //      Create a buffered reader br and open it to a new fileReader(fileName)
-    //      Create a list of Strings
-    //      input = br.readLine()
-    //      while input != null
-    //          add each line of the input file as a string element to the list
-    //          list.add(input)
-    //          input = br.readLine()
-    //      finally:
-    //          close br
-    //  return the list
-
-
-    //  Create method: List<String> convertList(List<String> lines)
-    //      Create a full list that adds all elements of i split as a list to it
-    //      List<String> full = new ArrayList<>;
-    //      Move through list passed as argument with a for each loop
-    //      for (String i: list)
-    //          i += " %n";
-    //          full.addAll(i.asList(i.split(" ")));
-    //      return full;
+    public List<String> readFromFile(String fileName) {
+        //      Create a list of Strings
+        List<String> list = new ArrayList<>();
+        //  Create a buffered reader in an automated try block
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String input = br.readLine();
+            while (input != null) {
+                //  add each line of the input file as a string element to the list
+                list.add(input);
+                input = br.readLine();
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+        return list;
+    }
+    //  Convert List is necessary to receive a list of strings to find the replacement string
+    public List<String> convertList(List<String> list) {
+        //  Return a list that adds all elements of the first line split as
+        return (Arrays.asList(list.get(0).split(" ")));
+    }
 }

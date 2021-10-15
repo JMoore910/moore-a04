@@ -14,7 +14,7 @@ class Sorter {
 }
 
 
-class Application {
+class Solution41 {
     nameList: ArrayList<String>
 }
 
@@ -23,7 +23,7 @@ class ListPrinter {
     +printToFile(ArrayList<String> list)): File
 }
 
-Application .. Sorter
-Sorter .. ListPrinter
+Solution41 --o Sorter
+Sorter --o ListPrinter
 
 @enduml

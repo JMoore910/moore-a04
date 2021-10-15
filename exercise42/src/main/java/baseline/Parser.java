@@ -1,5 +1,10 @@
 package baseline;
 
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+ *  Copyright 2021 Jeanne Moore
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

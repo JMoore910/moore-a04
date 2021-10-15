@@ -1,5 +1,10 @@
 @startuml
 
+'/*
+' * UCF COP3330 Fall 2021 Assignment 4 Solutions
+' * Copyright 2021 Jeanne Moore
+' */
+
 class Employee {
     - firstName: String
     - lastName: String
@@ -20,12 +25,12 @@ class Parser {
 }
 
 
-class Application {
+class Solution42 {
     main()
     new Parser();
 }
 
-Application -- Parser
+Solution42 --o Parser
 
-Parser ..o Employee
+Parser --o Employee
 @enduml

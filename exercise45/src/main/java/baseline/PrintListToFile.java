@@ -20,51 +20,67 @@ Create a class for printing that creates a ReadListFromFile object, and
     the input file.
  */
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
+
 public class PrintListToFile {
-    //  Create method: List<String> readAndProcessList(String inFile)
-    //      Create a list of Strings
-    //      List<String> readList;
-    //      List<String> replacers;
-    //      List<String> processed;
-    //      Create a ReadListFromFile object readObj
-    //      Create a ProcessList object processObj
-    //      move list through other class' methods until you have a processed list
-    //      list = readObj.readListFromFile(inFile);
-    //      list = readObj.convertList(list);
-    //      replacers = processObj.findStrings(list);
-    //      processed = processObj.replaceStrings(replacers.get(0),replacers.get(1),list);
-    //      return processed;
+    public static final Scanner input = new Scanner(System.in);
 
 
-    //  Create method: String getFileName()
-    //      String fileName;
-    //      prompt user to input a filename without .txt file extension
-    //      while (true)
-    //          print: "Please enter an output text file name%nDo not include extensions"
-    //          fileName = input.nextLine();
-    //          if !fileName.contains(".")
-    //              break;
-    //          print: "That is not a valid file name: Do not give extensions and remove periods.%n"
-    //      concatenate fileName to format it properly
-    //      fileName = "data\" + fileName + ".txt";
-    //      return fileName;
+    public void readAndProcessList(String inFile) {
+        //  method made specifically to run processes of other classes and their methods
+        //  this method contains no non-borrowed processes, so I believe it does not merit a test case
+        //  Create a list of Strings
+        List<String> replacers;
+        List<String> firstLine;
+        //  Create a ReadListFromFile object readObj
+        //  Create a ProcessList object processObj
+        ReadListFromFile readObj = new ReadListFromFile();
+        ProcessList processObj = new ProcessList();
+
+        //  move list through other class' methods until you have a processed list
+        List<String> list = readObj.readFromFile(inFile);
+        firstLine = readObj.convertList(list);
+        replacers = processObj.findStrings(firstLine);
+        processObj.replaceStrings(replacers.get(0),replacers.get(1),list);
+        //  call to get file name from user
+        String fileName = getFileName();
+        printToFile(list,fileName);
+    }
 
 
-    //  Create method: void printListToFile(String inFile)
-    //      List<String> list = readAndProcessList(inFile);
-    //      create a buffered writer
-    //      call to get file name from user
-    //      String fileName = getFileName();
-    //      try:
-    //          BufferedWriter bw = new BufferedWriter(New file(fileName))
-    //          enter a for each loop to go through list printing all strings, and a new line when
-    //          a new line is found
-    //          for (String i : list)
-    //              if (i.contains("%n"))
-    //                  bw.print("%n");
-    //              else
-    //                  bw.print(i);
-    //      finally:
-    //          close bw
-    //      When program finishes, file is created within data folder
+    private String getFileName() {
+        //  method for user input, does not merit a test case
+        String fileName;
+        //  prompt user to input a filename without .txt file extension
+        while (true) {
+            System.out.println("Please enter an output text file name\nDo not include extensions");
+            fileName = input.nextLine();
+            if (!fileName.contains("."))
+                break;
+            System.out.println("That is not a valid file name: Do not give extensions and remove periods.%n");
+        }
+        //      concatenate fileName to format it properly
+        fileName = "data//" + fileName + ".txt";
+        return fileName;
+    }
+
+
+    public void printToFile(List<String> list,String outFile) {
+        //  method to print a list to an output file
+        //  create a buffered writer
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(outFile))) {
+            //  enter a for each loop to go through list printing all strings
+            for (String i : list) {
+                bw.write(i);
+                bw.write("\n");
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+        //  When program finishes, file is created within data folder
+    }
 }

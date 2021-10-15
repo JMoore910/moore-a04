@@ -45,9 +45,11 @@ package baseline;
  */
 
 public class Solution45 {
-    //  private static final String FILEPATH = "data//exercise45_input.txt";
+    //  Set static final FILEPATH for input file
+    private static final String FILEPATH = "data//exercise45_input.txt";
     public static void main(String[] args) {
-        //  Create a PrintListToFile object app
-        //  app.printListToFile(FILEPATH);
+        //  Create Printer
+        PrintListToFile printer = new PrintListToFile();
+        printer.readAndProcessList(FILEPATH);
     }
 }
